@@ -29,6 +29,13 @@ function App() {
     setDraft("");
   }
 
+  function handleRemove(textToRemove) {
+    const kvar = todos.filter(function (todo) {
+      return todo !== textToRemove;
+    });
+    setTodos(kvar);
+  }
+
   return (
     <main>
       <h1>Övnings-todo</h1>
@@ -36,7 +43,12 @@ function App() {
       {/*TODO: Detta skalar inte - behövs en loop*/}
       <ul>
         {todos.map((todo) => (
-          <li key={todo}>{todo}</li>
+          <li key={todo}>
+            {todo}
+            <button type="button" onClick={() => handleRemove(todo)}>
+              Ta bort
+            </button>
+          </li>
         ))}
       </ul>
       {/* <li>{todos[99]}</li>    // Visar en tom punkt i listan, sidan kraschas inte.*/}
