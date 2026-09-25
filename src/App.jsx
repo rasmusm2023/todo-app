@@ -33,12 +33,21 @@ function App() {
     <main>
       <h1>Övnings-todo</h1>
       <p>Antal uppgifter: {todos.length}</p>
+      {/*TODO: Detta skalar inte - behövs en loop*/}
       <ul>
-        {todos.map((todo) => (
-          <li key={todo}>{todo}</li>
-        ))}
-        {/* <li>{todos[99]}</li>    // Visar en tom punkt i listan, sidan kraschas inte.*/}
+        <li>{todos[0]}</li>
+        <li>{todos[1]}</li>
+        <li>{todos[2]}</li>
+        <li>{todos[3]}</li>
+        <li>{todos[4]}</li>
+        <li>{todos[5]}</li>
+        <li>{todos[6]}</li>
+        <li>{todos[7]}</li>
+        <li>{todos[8]}</li>
+        <li>{todos[9]}</li>
       </ul>
+      {/* <li>{todos[99]}</li>    // Visar en tom punkt i listan, sidan kraschas inte.*/}
+
       <input
         type="text"
         value={draft}
