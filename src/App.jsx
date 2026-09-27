@@ -42,6 +42,10 @@ function App() {
       <p>Antal uppgifter: {todos.length}</p>
       {/*TODO: Detta skalar inte - behövs en loop*/}
       <ul>
+        {todos.filter(function (todo) {
+          return todo.toLowerCase().includes(draft.toLowerCase());
+        })}
+        ;
         {todos.map((todo) => (
           <li key={todo}>
             {todo}

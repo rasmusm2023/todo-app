@@ -17,3 +17,5 @@ Svar: Eftersom den silar efter det vi ber den leta efter. Den skär inte bort n�
 Vad gör key — och vad är den INTE?
 
 Svar: Key är ett ID för komponenter eller element. Se det som ett personnummer. Det är dock inget som är synligt eller visuellt för användaren/hemsidan.
+
+# Sök filtrerar UI — den muterar inte state-listan.
