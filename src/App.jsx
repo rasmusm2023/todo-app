@@ -1,9 +1,8 @@
 import { useState } from "react"; // 1. Här ska ert useState bo!
 function App() {
   const [todos, setTodos] = useState([
-    "Koka kaffe",
-    "Träna",
-    "Gå ut med hunden",
+    { id: 1, text: "Ring kund" },
+    { id: 2, text: "Ring kund" },
   ]);
 
   function clearList() {
@@ -25,13 +24,13 @@ function App() {
 
     if (text === "") {
       return;
-    } else setTodos([...todos, text]);
+    } else setTodos([...todos, { id: Date.now(), text: text }]);
     setDraft("");
   }
 
   function handleRemove(textToRemove) {
     const kvar = todos.filter(function (todo) {
-      return todo !== textToRemove;
+      return todo.id !== textToRemove;
     });
     setTodos(kvar);
   }
@@ -41,19 +40,20 @@ function App() {
       <h1>Övnings-todo</h1>
       <p>Antal uppgifter: {todos.length}</p>
       {/*TODO: Detta skalar inte - behövs en loop*/}
+
       <ul>
-        {todos.filter(function (todo) {
-          return todo.toLowerCase().includes(draft.toLowerCase());
-        })}
-        ;
-        {todos.map((todo) => (
-          <li key={todo}>
-            {todo}
-            <button type="button" onClick={() => handleRemove(todo)}>
-              Ta bort
-            </button>
-          </li>
-        ))}
+        {todos
+          .filter((todo) =>
+            todo.text.toLowerCase().includes(draft.toLowerCase()),
+          )
+          .map((todo) => (
+            <li key={todo.id}>
+              {todo.text}
+              <button type="button" onClick={() => handleRemove(todo.id)}>
+                Ta bort
+              </button>
+            </li>
+          ))}
       </ul>
       {/* <li>{todos[99]}</li>    // Visar en tom punkt i listan, sidan kraschas inte.*/}
 
